@@ -6,8 +6,9 @@ class ItemManager extends AbstractManager {
   }
 
   insert(item) {
-    return this.database.query(`insert into ${this.table} (title) values (?)`, [
-      item.title,
+    return this.database.query(
+      `INSERT INTO ${this.table} (title, description) VALUES (?, ?)`,
+      [item.title, item.description
     ]);
   }
 

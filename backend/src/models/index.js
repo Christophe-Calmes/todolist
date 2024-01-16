@@ -30,9 +30,13 @@ pool.getConnection().catch(() => {
 const models = {};
 
 const ItemManager = require("./ItemManager");
+const UsersManager = require("./usersManager");
 
 models.item = new ItemManager();
+models.users = new UsersManager();
+
 models.item.setDatabase(pool);
+models.users.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
