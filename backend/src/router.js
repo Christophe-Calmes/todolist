@@ -4,8 +4,13 @@ const router = express.Router();
 
 const itemControllers = require("./controllers/itemControllers");
 const usersControllers = require("./controllers/usersControllers ");
+const usersConnected = require("./controllers/connectedController");
+const verifyUser = require("./middlewares/verifiedPassword");
 
 const hashingPassword = require("./middlewares/hashPassword");
+
+// Connexion users
+router.post("/login", verifyUser, usersConnected.userLogin);
 
 // items
 router.get("/items", itemControllers.browse);
