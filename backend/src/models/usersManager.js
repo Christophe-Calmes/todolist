@@ -11,7 +11,7 @@ class UsersManager extends AbstractManager {
       [users.pseudo, users.password, users.email]
     );
   }
-
+  
   update(users) {
     return this.database.query(
       `UPDATE ${this.table} SET pseudo = ?, password = ?, email = ?, update_date= CURRENT_DATE WHERE id = ?`,
