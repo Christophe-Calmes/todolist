@@ -41,6 +41,7 @@ const edit = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
+        // 204 -> Pas de message de confirmation
         res.sendStatus(204);
       }
     })
